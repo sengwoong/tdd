@@ -1,17 +1,57 @@
 [
-    {
-        "name": "Gloves",
-        "description": "good to wear",
-        "price": 15
-    },
-    {
-        "name": "Gloves",
-        "description": "good to wear",
-        "price": 13
-    },
-    {
-        "name": "Gloves",
-        "description": "good to wear",
-        "price": 12
-    }
+  {
+    "name": "니트 원피스",
+    "description": "스커트와 타입 디자인, 터틀넥, 벨트 포함, 베이지 컬러",
+    "price": 55000
+  },
+  {
+    "name": "가죽자켓",
+    "description": "소프트한 가죽 소재, 슬림핏 디자인, 지퍼 디테일, 블랙 컬러",
+    "price": 89000
+  },
+  {
+    "name": "청바지",
+    "description": "스키니핏 디자인, 데님 소재, 블루 컬러",
+    "price": 45000
+  },
+  {
+    "name": "롱 코트",
+    "description": "울 혼방 소재, 크림 컬러, 더블 브레스트 버튼 디테일",
+    "price": 129000
+  },
+  {
+    "name": "후드 집업",
+    "description": "스웨트 소재, 프론트 지퍼 디테일, 블랙 컬러",
+    "price": 35000
+  },
+  {
+    "name": "니트 스웨터",
+    "description": "오버사이즈 디자인, 높은 넥라인, 크림 컬러",
+    "price": 59000
+  },
+  {
+    "name": "미디 스커트",
+    "description": "플리츠 디자인, 캐주얼한 룩에도 잘 어울리는 베이지 컬러",
+    "price": 39000
+  },
+  {
+    "name": "롱 드레스",
+    "description": "벨벳 소재, V넥 디자인, 슬릿 디테일, 블랙 컬러",
+    "price": 99000
+  },
+  {
+    "name": "린넨 셔츠",
+    "description": "유기농 린넨 소재, 오버사이즈 핏, 베이지 컬러",
+    "price": 59000
+  },
+  {
+    "name": "레깅스",
+    "description": "스키니핏 디자인, 신축성 좋은 소재, 블랙 컬러",
+    "price": 25000
+  },
+  {
+    "name": "레더 팬츠",
+    "description": "소프트한 가죽 소재, 슬림핏 디자인, 블랙 컬러",
+    "price": 109000
+  }
 ]

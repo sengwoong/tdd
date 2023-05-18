@@ -67,6 +67,12 @@ function calculateSubtotal(orderType, orderCounts) {
 <br><br>
 https://blog.naver.com/djsdjdyd123?Redirect=Update&logNo=223105256730
 
+
+<br>
+코딩은 에러를 잡는기술 이라더니 온동네 에러에만 20시간 이상보내고
+<br>
+(몽고디비 10시간 jest 바벨설정[최근바뀜] 10) 실제로 코드는 4~5시간 만지네요
+<br>
 jest관련해서 강의랑 다르게 오류가 많이날겁니다 일단 엑시오스 가 업데이트돼면서 jest에서 충돌나는것을 막는방법입니다 <br>
 ![image](https://github.com/sengwoong/tdd/assets/92924243/1513baf0-be3d-4bbd-99ec-9516d4fa1a32)
 <br>

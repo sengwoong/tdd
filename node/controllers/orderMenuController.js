@@ -3,7 +3,7 @@ const orderMenuModel = require("../models/orderMenu");
 exports.getOrderMenus = async (req, res, next) => {
   try {
     const allOptions = await orderMenuModel.find({});
-    //console.log(allOptions);
+    // console.log(allOptions);
     res.status(200).json(allOptions);
   } catch (error) {
     next(error);

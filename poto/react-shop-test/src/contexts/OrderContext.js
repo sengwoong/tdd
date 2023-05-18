@@ -1,3 +1,33 @@
+// import { createContext, useState, useMemo, useEffect } from "react";
+
+// export const OrderContext = createContext();
+
+// const pricePerItem = {
+//   products: {
+//     America: 1000,
+//     England: 2000,
+//     Germany: 1500,
+//     Portland: 1700,
+//   },
+//   options: 500,
+// };
+
+// function calculateSubtotal(orderType, orderCounts) {
+//   let subtotal = 0;
+
+//   if (orderType === "products") {
+//     for (const [country, count] of orderCounts[orderType]) {
+//       subtotal += count * pricePerItem[orderType][country];
+//     }
+//   } else if (orderType === "options") {
+//     for (const [option, count] of orderCounts[orderType]) {
+//       subtotal += count * pricePerItem[orderType];
+//     }
+//   }
+
+//   return subtotal;
+// }
+
 import { createContext, useState, useMemo, useEffect } from "react";
 
 export const OrderContext = createContext();
@@ -6,23 +36,78 @@ const pricePerItem = {
   products: {
     America: 1000,
     England: 2000,
-    Germany: 1500,
-    Portland: 1700,
+    Germany: 2000,
+    Portland: 4000,
   },
   options: 500,
 };
+
+const sale = {
+  products: {
+    Germany: 20,
+    Portland: 20,
+  },
+};
+
+function applyDiscount(orderType, orderCounts) {
+  let subtotal = 0;
+  const discountAdapter = {
+    products: {
+      applyDiscount: (country, count) => {
+        subtotal +=
+          count * pricePerItem[orderType][country] -
+          Math.floor(
+            (count * pricePerItem[orderType][country]) /
+              sale[orderType][country]
+          );
+      },
+      NONDiscount: (country, count) => {
+        console.log(
+          "pricePerItem[orderType][country]:" + pricePerItem[orderType][country]
+        );
+        console.log("orderType:" + orderType);
+        console.log("country:" + country);
+        subtotal += count * pricePerItem[orderType][country];
+      },
+    },
+    options: {
+      applyOption: (count) => {
+        // console.log(
+        //   " pricePerItem[orderType][country];:",
+        //   pricePerItem["options"]["Dinner"]
+        // );
+        // console.log("orderType:", orderType);
+        // console.log("country:", country);
+        subtotal += count * pricePerItem[orderType];
+      },
+    },
+  };
+
+  for (const [country, count] of orderCounts[orderType].entries()) {
+    if (orderType === "options") {
+      // console.log("country:", country);
+      // console.log("country:", count);
+      discountAdapter[orderType].applyOption(count);
+    } else if (
+      orderType === "products" &&
+      sale[orderType][country] !== undefined
+    ) {
+      discountAdapter[orderType].applyDiscount(country, count);
+    } else {
+      discountAdapter[orderType].NONDiscount(country, count);
+    }
+  }
+
+  return subtotal;
+}
 
 function calculateSubtotal(orderType, orderCounts) {
   let subtotal = 0;
 
   if (orderType === "products") {
-    for (const [country, count] of orderCounts[orderType]) {
-      subtotal += count * pricePerItem[orderType][country];
-    }
+    subtotal = applyDiscount(orderType, orderCounts);
   } else if (orderType === "options") {
-    for (const [option, count] of orderCounts[orderType]) {
-      subtotal += count * pricePerItem[orderType];
-    }
+    subtotal = applyDiscount(orderType, orderCounts);
   }
 
   return subtotal;

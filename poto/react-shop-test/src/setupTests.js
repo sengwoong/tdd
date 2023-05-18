@@ -11,3 +11,11 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 
 afterAll(() => server.close());
+// src/setupTests.js
+const originalError = console.error;
+console.error = (error) => {
+  if (error.includes("An update to")) {
+    return;
+  }
+  originalError.call(console, error);
+};

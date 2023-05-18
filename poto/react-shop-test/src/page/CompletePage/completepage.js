@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import ErrorBanner from "../../components/ErrorBanner";
 import { OrderContext } from "../../contexts/OrderContext";
-import { DelectOrder, ViewOrder } from "./test/UseOrderData";
+import { DelectOrder, ViewOrder } from "./server/UseOrderData";
 
 function CompletePage({ setStep }) {
   const [OrderDatas, , resetOrderDatas] = useContext(OrderContext);
@@ -13,6 +13,12 @@ function CompletePage({ setStep }) {
     orderCompleted(OrderDatas);
   }, [OrderDatas]);
 
+  useEffect(() => {
+    if (error) {
+      setLoading(false);
+    }
+  }, [error]);
+
   const orderCompleted = async (OrderDatas) => {
     try {
       const response = await ViewOrder(OrderDatas);
@@ -20,6 +26,7 @@ function CompletePage({ setStep }) {
       setLoading(false);
     } catch (error) {
       setError(true);
+      setLoading(false);
     }
   };
 

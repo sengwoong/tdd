@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const optionsController = require("../controllers/optionsController.js");
-const countriesController = require("../controllers/countriesController.js");
-const orderMenuController = require("../controllers/orderMenuController.js");
+const optionsController = require("../controllers/optionsController");
+const countriesController = require("../controllers/countriesController");
+const orderMenuController = require("../controllers/orderMenuController");
 
 router.get("/products", countriesController.getCountries);
 router.get("/options", optionsController.getOptions);

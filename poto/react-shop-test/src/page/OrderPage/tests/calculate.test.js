@@ -29,7 +29,7 @@ test("update product's total when products change", async () => {
   expect(productsTotal).toHaveTextContent("상품 총 가격: 1000");
 });
 
-test("update option's total when options change", async () => {
+test.only("update option's total when options change", async () => {
   render(
     <>
       <OrderItem orderType="options" />

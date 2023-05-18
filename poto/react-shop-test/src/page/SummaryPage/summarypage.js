@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { OrderContext } from "../../contexts/OrderContext";
-import { createOrder } from "../CompletePage/test/UseOrderData";
+import { createOrder } from "../CompletePage/server/UseOrderData";
 
 const SummaryPage = ({ setStep }) => {
   const [orderDatas] = useContext(OrderContext);

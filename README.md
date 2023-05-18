@@ -97,8 +97,9 @@ https://junhyunny.github.io/react/jest/module-import-error-on-jest/
 
 이렇게하고 기존에 바벨이랑 위 깃처럼 설정하면됍니다.
 <br>
-
-
+<br>
+<br>
+msw쓰레
 ```
   "devDependencies": {
     "@babel/core": "^7.21.8",
@@ -118,4 +119,55 @@ https://junhyunny.github.io/react/jest/module-import-error-on-jest/
   <br>
   
   ![image](https://github.com/sengwoong/tdd/assets/92924243/9092421d-e8c0-437d-a03a-927415be3027)
+  
+  
+  ```
+  setupServer와 MockAdapter는 둘 다 API 요청을 가로채고 응답을 제어하는 데 사용되는 도구입니다. 하지만 그들은 서로 다른 라이브러리이며 목적과 사용법이 다릅니다.
+
+setupServer는 msw (Mock Service Worker) 라이브러리에 포함된 도구입니다. msw는 브라우저나 Node.js에서 API 요청을 가로채고 가짜 응답을 제공하는 목 서버를 설정하는 데 사용됩니다. setupServer를 사용하여 목 서버를 구성하고, msw를 활성화하여 테스트 중에 실제 API 요청을 가로챌 수 있습니다.
+
+예를 들어, 테스트에서 setupServer를 사용하여 가짜 응답을 설정할 수 있습니다:
+
+javascript
+Copy code
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+
+const server = setupServer(
+  rest.get('/api/viewOrder', (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({ /* 응답 데이터 */ })
+    );
+  })
+);
+
+beforeAll(() => server.listen());
+afterAll(() => server.close());
+
+it('should handle successful order completion', async () => {
+  // orderCompleted 함수 호출 및 기대값 설정
+
+  // 테스트 수행
+});
+MockAdapter는 axios 라이브러리와 함께 사용되는 도구입니다. axios는 HTTP 요청을 처리하는 클라이언트 라이브러리이며, MockAdapter는 axios의 인스턴스를 가로채고 가짜 응답을 설정하여 API 요청을 테스트하는 데 사용됩니다.
+
+예를 들어, MockAdapter를 사용하여 가짜 응답을 설정할 수 있습니다:
+
+javascript
+Copy code
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+
+const mockAxios = new MockAdapter(axios);
+
+mockAxios.onGet('/api/viewOrder').reply(200, { /* 응답 데이터 */ });
+
+it('should handle successful order completion', async () => {
+  // orderCompleted 함수 호출 및 기대값 설정
+
+  // 테스트 수행
+});
+따라서 setupServer와 MockAdapter는 다른 라이브러리에 속하며, 각각 msw와 axios와 함께 사용되는 도구입니다. setupServer는 목 서버를 설정하고 가짜 응답을 제공하는 데 사용되는 반면, MockAdapter는 axios를 가로채고 가짜 응답을 제공하여 API 요청을 테스트하는 데 사용됩니다.
+  ```
 

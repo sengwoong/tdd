@@ -76,16 +76,26 @@ https://blog.naver.com/djsdjdyd123?Redirect=Update&logNo=223105256730
 <br>
 (몽고디비 10시간 jest 바벨설정[최근바뀜] 10) 실제로 코드는 4~5시간 만지네요
 <br>
-jest관련해서 강의랑 다르게 오류가 많이날겁니다 일단 엑시오스 가 업데이트돼면서 jest에서 충돌나는것을 막는방법입니다 <br>
+jest관련해서 강의랑 다르게 오류가 많이날겁니다 일단 엑시오스 가 업데이트돼면서 jest에서 충돌나는것을 막는방법입니다 <br><br>
+
+
 ![image](https://github.com/sengwoong/tdd/assets/92924243/1513baf0-be3d-4bbd-99ec-9516d4fa1a32)
+
+
 <br>
 바벨이랑 설정도 바꿔야합니다.
 <br>
+<br>
+
 ![image](https://github.com/sengwoong/tdd/assets/92924243/04666f55-fa5a-49f3-a200-23376a732acf)
 https://junhyunny.github.io/react/jest/module-import-error-on-jest/
 <br>
+
+
 이렇게하고 기존에 바벨이랑 위 깃처럼 설정하면됍니다.
 <br>
+
+
 ```
   "devDependencies": {
     "@babel/core": "^7.21.8",
@@ -97,6 +107,8 @@ https://junhyunny.github.io/react/jest/module-import-error-on-jest/
     "test-utils": "^1.1.1"
   }
   ```
+  <br>
+  <br>
   추가<br>
   에니메이션 메뉴바만들고 튑니다<br>
   (더만들면 2일넘을것같아요)

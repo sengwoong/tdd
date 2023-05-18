@@ -3,7 +3,7 @@
 ![image](https://github.com/sengwoong/tdd/assets/92924243/8e4b5399-ed48-436c-9740-7c046fbfb5a7)
 
 <br>
-총프로젝트 기간 2일 문서작성 1일..? [놀랍게도 몽고스 디비저장할떄 네이밍에s를 붙여야한다에 10시간이상걸렸습니다.]<br>
+총프로젝트 기간 2일 문서작성 1<>일..? [놀랍게도 몽고스 디비저장할떄 네이밍에s를 붙여야한다에 10시간이상걸렸습니다.]<br>
 (poto 파일에 몽고디비 crud 리엑트)<br>
 미니프로젝트라 기간을 짧게잡았습니다.<br>
 다음 강의를 보고 공부하였습니다.<br>
@@ -169,5 +169,148 @@ it('should handle successful order completion', async () => {
   // 테스트 수행
 });
 따라서 setupServer와 MockAdapter는 다른 라이브러리에 속하며, 각각 msw와 axios와 함께 사용되는 도구입니다. setupServer는 목 서버를 설정하고 가짜 응답을 제공하는 데 사용되는 반면, MockAdapter는 axios를 가로채고 가짜 응답을 제공하여 API 요청을 테스트하는 데 사용됩니다.
+  ```
+  <br> 
+  <br>
+  ## 고민한것(꿈에서본거)
+  <br>
+  아디자인팬턴 배운거 쓰고 알는척해야하지않나<br>
+  제가 왜그런생각을 했을까요<br>
+  할인을 백에서받아와서 처리합니다만 이떄 옵션합과 메뉴합은 내부에서만 처리하고 (백에제공안함)<br>
+  버리는 로직이라서 프론트에서 js 로 패턴을 넣어주는게 좋을것같아서 하였습니다<br>
+  2시간 삽질하니 할만하네요. 그런데 세일함수를 따로만들어야하지않나.<br>
+  세일옵션이 많아지면 토큰에서 세일가격들고오게하면 한줄추가하면돼고 단 보안적인 확인해야할듯<br>
+  세일 디비가 많아지면 sale을 또함수로만들어서 배열로해서 나열하면 됄듯 <br>
+  형식다른건 어뎁터로 바꾸든지하면됄듯 그러니 괜찮은로직인거같아요 확장성좋고 <br>
+  디비길쭉하게 안받와도대고 프로덕트로 나누듯이 다나누면됀다생각합니다.<be>
+  하드코드만세<br>
+  ```
+  // import { createContext, useState, useMemo, useEffect } from "react";
+
+// export const OrderContext = createContext();
+
+// const pricePerItem = {
+//   products: {
+//     America: 1000,
+//     England: 2000,
+//     Germany: 1500,
+//     Portland: 1700,
+//   },
+//   options: 500,
+// };
+
+// function calculateSubtotal(orderType, orderCounts) {
+//   let subtotal = 0;
+
+//   if (orderType === "products") {
+//     for (const [country, count] of orderCounts[orderType]) {
+//       subtotal += count * pricePerItem[orderType][country];
+//     }
+//   } else if (orderType === "options") {
+//     for (const [option, count] of orderCounts[orderType]) {
+//       subtotal += count * pricePerItem[orderType];
+//     }
+//   }
+
+//   return subtotal;
+// }
+
+import { createContext, useState, useMemo, useEffect } from "react";
+
+export const OrderContext = createContext();
+
+const pricePerItem = {
+  products: {
+    America: 1000,
+    England: 2000,
+    Germany: 2000,
+    Portland: 4000,
+  },
+  options: 500,
+};
+
+const sale = {
+  products: {
+    Germany: 20,
+    Portland: 20,
+  },
+};
+
+function applyDiscount(orderType, orderCounts) {
+  let subtotal = 0;
+  const discountAdapter = {
+    products: {
+      applyDiscount: (country, count) => {
+        subtotal +=
+          count * pricePerItem[orderType][country] -
+          Math.floor(
+            (count * pricePerItem[orderType][country]) /
+              sale[orderType][country]
+          );
+      },
+      NONDiscount: (country, count) => {
+        console.log(
+          "pricePerItem[orderType][country]:" + pricePerItem[orderType][country]
+        );
+        console.log("orderType:" + orderType);
+        console.log("country:" + country);
+        subtotal += count * pricePerItem[orderType][country];
+      },
+    },
+    options: {
+      applyOption: (count) => {
+        // console.log(
+        //   " pricePerItem[orderType][country];:",
+        //   pricePerItem["options"]["Dinner"]
+        // );
+        // console.log("orderType:", orderType);
+        // console.log("country:", country);
+        subtotal += count * pricePerItem[orderType];
+      },
+    },
+  };
+
+  for (const [country, count] of orderCounts[orderType].entries()) {
+    if (orderType === "options") {
+      // console.log("country:", country);
+      // console.log("country:", count);
+      discountAdapter[orderType].applyOption(count);
+    } else if (
+      orderType === "products" &&
+      sale[orderType][country] !== undefined
+    ) {
+      discountAdapter[orderType].applyDiscount(country, count);
+    } else {
+      discountAdapter[orderType].NONDiscount(country, count);
+    }
+  }
+
+  return subtotal;
+}
+
+function calculateSubtotal(orderType, orderCounts) {
+  let subtotal = 0;
+
+  if (orderType === "products") {
+    subtotal = applyDiscount(orderType, orderCounts);
+  } else if (orderType === "options") {
+    subtotal = applyDiscount(orderType, orderCounts);
+  }
+
+  return subtotal;
+}
+
+export function OrderContextProvider(props) {
+  //초기화
+  const [orderCounts, setOrderCounts] = useState({
+    products: new Map(),
+    options: new Map(),
+  });
+  //들어갈값 초기화
+  const [totals, setTotals] = useState({
+    products: 0,
+    options: 0,
+    total: 0,
+  });
   ```
 

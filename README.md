@@ -113,6 +113,8 @@ https://junhyunny.github.io/react/jest/module-import-error-on-jest/
   <br>
   추가<br>
   에니메이션 메뉴바만들고 튑니다<br>
-  (더만들면 2일넘을것같아요)
+  (더만들면 2일넘을것같아요)<br>
+  <br>
+  
   ![image](https://github.com/sengwoong/tdd/assets/92924243/9092421d-e8c0-437d-a03a-927415be3027)
 

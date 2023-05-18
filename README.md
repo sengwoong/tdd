@@ -178,13 +178,18 @@ it('should handle successful order completion', async () => {
   제가 왜그런생각을 했을까요<br>
   할인을 백에서받아와서 처리합니다만 이떄 옵션합과 메뉴합은 내부에서만 처리하고 (백에제공안함)<br>
   버리는 로직이라서 프론트에서 js 로 패턴을 넣어주는게 좋을것같아서 하였습니다<br>
+  <br><br><br>
   2시간 삽질하니 할만하네요. 그런데 세일함수를 따로만들어야하지않나.<br>
+  <br><br><br>
   세일옵션이 많아지면 토큰에서 세일가격들고오게하면 한줄추가하면돼고 단 보안적인 확인해야할듯<br>
   세일 디비가 많아지면 sale을 또함수로만들어서 배열로해서 나열하면 됄듯 <br>
   형식다른건 어뎁터로 바꾸든지하면됄듯 그러니 괜찮은로직인거같아요 확장성좋고 <br>
-  디비길쭉하게 안받와도대고 프로덕트로 나누듯이 다나누면됀다생각합니다.<be>
+  디비길쭉하게 안받와도대고 프로덕트로 나누듯이 다나누면됀다생각합니다.<br>
+  <br><br><br>
   하드코드만세<br>
+  
   ```
+  
   // import { createContext, useState, useMemo, useEffect } from "react";
 
 // export const OrderContext = createContext();

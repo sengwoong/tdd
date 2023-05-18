@@ -1,6 +1,6 @@
 
 다음 아래와 같은 툴을 사용하겨 개발 하였습니다<br>
-\![image](https://github.com/sengwoong/tdd/assets/92924243/8e4b5399-ed48-436c-9740-7c046fbfb5a7)
+![image](https://github.com/sengwoong/tdd/assets/92924243/8e4b5399-ed48-436c-9740-7c046fbfb5a7)
 
 <br>
 총프로젝트 기간 2일 문서작성 1일..? [놀랍게도 몽고스 디비저장할떄 네이밍에s를 붙여야한다에 10시간이상걸렸습니다.]<br>

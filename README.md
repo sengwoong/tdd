@@ -11,8 +11,8 @@
 
 
 ![image](https://github.com/sengwoong/tdd/assets/92924243/f6aacd3c-efb1-4c5f-b6e4-47f714414046)
-강의만 300만원 정도 봤습니다.<br>
-참고로 강사느 카카오톡 신입교육 담당<br>
+<br>
+참고로 강사는 카카오톡 신입교육 담당<br>
 아래는 정리한블로그13개포스팅 뷰테스팅 이후에 오랜만에 jest를 사용해보네요<br>
 https://blog.naver.com/dogfooddragon <br>
 https://blog.naver.com/djsdjdyd123/223102799481

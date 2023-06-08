@@ -8,7 +8,15 @@
 미니프로젝트라 기간을 짧게잡았습니다.<br>
 다음 강의를 보고 공부하였습니다.<br>
 리엑트 너무 하드코딩이라서 구조를 리펙토링하였습니다.<br>
+<br><br> 화면
+<img width="1432" alt="스크린샷 2023-06-08 오후 4 37 41" src="https://github.com/sengwoong/tdd/assets/92924243/b3a43b48-de5b-460e-a0c5-33691f27557f"><br>
 
+<img width="657" alt="스크린샷 2023-06-08 오후 5 53 16" src="https://github.com/sengwoong/tdd/assets/92924243/43b4b184-d1f9-470d-b4cb-47241d156b4f">
+<br>
+<img width="1327" alt="스크린샷 2023-06-08 오후 5 53 11" src="https://github.com/sengwoong/tdd/assets/92924243/1b668a82-4d2d-4868-9cc8-7eac64836131">
+<br>
+<img width="1388" alt="스크린샷 2023-06-08 오후 5 53 03" src="https://github.com/sengwoong/tdd/assets/92924243/9320044f-2364-450c-b781-9b6b0796a631">
+<br>
 
 ![image](https://github.com/sengwoong/tdd/assets/92924243/f6aacd3c-efb1-4c5f-b6e4-47f714414046)
 <br>

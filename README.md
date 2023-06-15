@@ -25,8 +25,17 @@
 아래는 정리한블로그13개포스팅 뷰테스팅 이후에 오랜만에 jest를 사용해보네요<br>
 https://blog.naver.com/dogfooddragon <br>
 https://blog.naver.com/djsdjdyd123/223102799481
-
-
+## 개념편
+단위테스트 통합테스트란?  <br>
+https://velog.io/@naahgi/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8 <br>
+단위테스트 코드와분법  <br>
+노드 <br>
+리엑트 <br>
+ <br> <br>
+통합테스트  코드와문법  <br>
+노드  <br>
+리엑트  <br>
+ <br> <br>
 <br>노드파일기준 테스트<br>
 ![image](https://github.com/sengwoong/tdd/assets/92924243/0e8132f4-ef36-4c65-9339-57c98408fd19)
 <br>

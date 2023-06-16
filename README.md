@@ -37,8 +37,8 @@ https://velog.io/@naahgi/%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%86%B5
 리엑트 <br>
  <br> <br>
 통합테스트  코드와문법  <br>
-노드  <br>
-리엑트  <br>
+노드  <br>https://velog.io/@naahgi/jest%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8
+리엑트  <br> 이력서참조
  <br> <br>
  
  

@@ -81,7 +81,7 @@ describe("Order Menu Controller - orderMenuCreate", () => {
 
     Math.random = jest.fn().mockReturnValue(0.123456); // Math.random을 mocking하여 항상 0.123456을 반환하도록 설정
 
-    orderMenuModel.create.mockReturnValue(mockCreatedOrderMenu); // create 메소드가 mockCreatedOrderMenu를 반환하도록 설정
+    o
 
     await orderMenuController.orderMenuCreate(req, res, next); // orderMenuCreate 함수 호출
 
